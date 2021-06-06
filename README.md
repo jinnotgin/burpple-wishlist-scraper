@@ -1,0 +1,2 @@
+# burpple-wishlist-scraper
+ 
