@@ -7,6 +7,11 @@ import cheerio from "cheerio";
 import * as constants from "../constants.js";
 const { SCRAPE_HOST, WISHLIST_URL } = constants;
 
+const requestHeaders = {
+	"User-Agent":
+		"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36 Edg/91.0.864.37",
+};
+
 export const scrapeWishlist = async ({ page = 1 }) => {
 	if (page < 0) throw "Page size is negative.";
 
@@ -18,10 +23,7 @@ export const scrapeWishlist = async ({ page = 1 }) => {
 
 	// ? Get HTML of the website
 	const response = await axios.get(url, {
-		headers: {
-			"User-Agent":
-				"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36 Edg/91.0.864.37",
-		},
+		headers: requestHeaders,
 	});
 	const html = response.data;
 
@@ -54,4 +56,69 @@ export const scrapeWishlist = async ({ page = 1 }) => {
 		.get();
 
 	return data;
+};
+
+export const scrapeVenue = async (venueUrl) => {
+	const url = venueUrl;
+
+	// ? Get HTML of the website
+	const response = await axios.get(url, {
+		headers: requestHeaders,
+	});
+	const html = response.data;
+
+	// ? Load HTML to cheerio
+	const $ = cheerio.load(html);
+
+	// ? check if item exists
+	const exists = $("div.venue-info").length > 0;
+	if (!exists) {
+		return { error: true, message: "Venue not found." };
+	}
+
+	// ? get venue information
+	const id = $("button.btn--wishlist").prop("data-venue-id");
+	const name = $("button.btn--wishlist").prop("data-venue-name");
+	const details = $(
+		"div.venue-details__item--address div.venue-details__item-body p"
+	)
+		.text()
+		.trim();
+	const googleMapUrl = $(
+		"div.venue-details__item--address div.venue-details__item-body a.open-google-map"
+	).prop("href");
+	const coordinates = googleMapUrl.split("query=")[1].split(",");
+	const latitude = coordinates[0];
+	const longitude = coordinates[1];
+	const openingHours = $(
+		"div.venue-details__item--opening div.venue-details__item-body p"
+	)
+		.map((_, element) => {
+			const textElement = $(element);
+			return textElement
+				.text()
+				.replace(/\s+/g, " ")
+				.replace(/am(?=\d{2})/, "am, ")
+				.replace(/pm(?=\d{2})/, "pm, ");
+		})
+		.get()
+		.join("\n")
+		.trim();
+	const featuredImages = $("div.venue-hero-images img")
+		.map((_, element) => {
+			const imageElement = $(element);
+			return imageElement.prop("data-src");
+		})
+		.get();
+
+	return {
+		id,
+		name,
+		details,
+		featuredImages,
+		latitude,
+		longitude,
+		googleMapUrl,
+		openingHours,
+	};
 };
