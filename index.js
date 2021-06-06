@@ -1,11 +1,12 @@
-import fs from "fs";
 import logger from "./logger.js";
 import asyncWorker from "./utils/asyncWorker.js";
 import { scrapeWishlist } from "./utils/scraperBurpple.js";
+import JsonFileStream from "./utils/jsonFileStream.js";
 
 import * as constants from "./constants.js";
 const { WISHLIST_DATAFILE } = constants;
 
+const wishlist_fileStream = new JsonFileStream(WISHLIST_DATAFILE);
 const burppleWishlistWorker = asyncWorker({
 	initialState: {
 		numEntries: undefined,
@@ -13,9 +14,7 @@ const burppleWishlistWorker = asyncWorker({
 	},
 	maxTimeout: 1000,
 	onStart: async () => {
-		fs.writeFile(WISHLIST_DATAFILE, "[\n", (error) => {
-			if (error) throw error;
-		});
+		wishlist_fileStream.init();
 	},
 	onTriggered: async (prevState = {}) => {
 		try {
@@ -30,11 +29,7 @@ const burppleWishlistWorker = asyncWorker({
 			//   logger.info(`Scraping page ${page}..`);
 			// }
 
-			var stream = fs.createWriteStream(WISHLIST_DATAFILE, { flags: "a" });
-			entries.forEach(function (item, index) {
-				stream.write(`${JSON.stringify(item)},\n`);
-			});
-			stream.end();
+			wishlist_fileStream.append(entries);
 
 			console.log(entries[entries.length - 1]);
 
@@ -55,9 +50,7 @@ const burppleWishlistWorker = asyncWorker({
 		return numEntries > 0;
 	},
 	onEnd: async () => {
-		fs.appendFile(WISHLIST_DATAFILE, "]\n", (error) => {
-			if (error) throw error;
-		});
+		wishlist_fileStream.end();
 	},
 });
 
