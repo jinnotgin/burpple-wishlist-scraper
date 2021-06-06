@@ -64,7 +64,6 @@ const burppleWishlistWorker = asyncWorker({
 	initialState: {
 		numEntries: undefined,
 		page: 1,
-		// accumulator: [],
 	},
 	maxTimeout: 1000,
 	onStart: async () => {
