@@ -7,9 +7,8 @@ const { WISHLIST_DATAFILE, VENUES_DATAFILE } = constants;
 const wishlist_fileStream = new JsonFileStream(WISHLIST_DATAFILE);
 const venue_fileStream = new JsonFileStream(VENUES_DATAFILE, "dictionary");
 
-let count = 0;
-// TODO: the following should be moved to JsonFileStream
 const burppleWishlistVenueTask = async () => {
+	logger.info("Started Burpple wishlist venue scraping..");
 	try {
 		venue_fileStream.init();
 
@@ -21,9 +20,12 @@ const burppleWishlistVenueTask = async () => {
 			if (!!!isValidData) return false;
 
 			const data = JSON.parse(line.replace(",{", "{")); // remove the first comma in the line, if any
-			const { url } = data;
+			const { url, name } = data;
 			linesToProcess++;
+
+			logger.info(`Scraping venue ${name}..`);
 			const venueData = await scrapeVenue(url);
+
 			linesToProcess--;
 			venueData["inWishlist"] = true;
 			console.log(venueData);
@@ -35,9 +37,9 @@ const burppleWishlistVenueTask = async () => {
 	} catch (e) {
 		logger.error(e);
 		logger.error(
-			"During page scraping, encountered an exception. Routine will now terminate."
+			"During venue wishlist scraping, encountered an exception. Routine will now terminate."
 		);
 	}
 };
 
-burppleWishlistVenueTask();
+export default burppleWishlistVenueTask;
