@@ -23,8 +23,8 @@ const burppleWishlistVenueTask = async () => {
 			const { url, name } = data;
 			linesToProcess++;
 
-			logger.info(`Scraping venue ${name}..`);
 			const venueData = await scrapeVenue(url);
+			logger.info(`Scraping venue ${name}..`);
 
 			linesToProcess--;
 			venueData["inWishlist"] = true;
