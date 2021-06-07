@@ -3,7 +3,7 @@ import readline from "readline";
 
 const dataTypeMap = {
 	array: ["[", "]"],
-	object: ["{", "}"],
+	dictionary: ["{", "}"],
 };
 
 export default class JsonFileStream {
@@ -11,6 +11,7 @@ export default class JsonFileStream {
 		this.filePath = filePath;
 		this.hasInit = false;
 		this.dataType = dataType;
+		this.firstLineWritten = false;
 	}
 
 	init() {
@@ -18,19 +19,34 @@ export default class JsonFileStream {
 		const startCharacter = dataTypeMap[this.dataType][0];
 		fs.writeFile(
 			this.filePath,
-			`{"start": "${new Date().toJSON()}",\n "data": ${startCharacter}\n`,
+			`{"start": "${new Date().toJSON()}", "data": ${startCharacter}\n`,
 			(error) => {
 				if (error) throw error;
 			}
 		);
 		this.hasInit = true;
+		this.firstLineWritten = false;
 	}
 
 	append(entries) {
 		if (!!!this.hasInit) throw "File stream not initialised yet.";
 		var stream = fs.createWriteStream(this.filePath, { flags: "a" });
+
+		const thisClass = this;
 		entries.forEach(function (item, index) {
-			stream.write(`${JSON.stringify(item)},\n`);
+			let content = "";
+			switch (thisClass.dataType) {
+				case "dictionary": {
+					content = `"${item.id}": ${JSON.stringify(item)}`;
+					break;
+				}
+				default: {
+					content = JSON.stringify(item);
+				}
+			}
+			// content = JSON.stringify(item);
+			stream.write(`${!!thisClass.firstLineWritten ? "," : ""}${content}\n`);
+			if (!!!thisClass.firstLineWritten) thisClass.firstLineWritten = true;
 		});
 		stream.end();
 	}
@@ -46,6 +62,7 @@ export default class JsonFileStream {
 			}
 		);
 		this.hasInit = false;
+		this.firstLineWritten = false;
 	}
 
 	get readline() {
