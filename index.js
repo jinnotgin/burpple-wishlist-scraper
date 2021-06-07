@@ -25,13 +25,13 @@ const burppleWishlistWorker = asyncWorker({
 				page,
 			});
 
+			console.log(entries[entries.length - 1]);
+
 			// if (page % 5 === 0) {
 			//   logger.info(`Scraping page ${page}..`);
 			// }
 
 			wishlist_fileStream.append(entries);
-
-			console.log(entries[entries.length - 1]);
 
 			return {
 				...prevState,
