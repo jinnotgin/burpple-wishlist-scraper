@@ -3,14 +3,11 @@
 
 import axios from "axios";
 import cheerio from "cheerio";
+import scrapeRequestHeader from "./scrapeRequestHeader.js";
+import Queue from "./queue.js";
 
 import * as constants from "../constants.js";
 const { SCRAPE_HOST, WISHLIST_URL } = constants;
-
-const requestHeaders = {
-	"User-Agent":
-		"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36 Edg/91.0.864.37",
-};
 
 export const scrapeWishlist = async ({ page = 1 }) => {
 	if (page < 0) throw "Page size is negative.";
@@ -22,9 +19,12 @@ export const scrapeWishlist = async ({ page = 1 }) => {
 	console.log(url);
 
 	// ? Get HTML of the website
-	const response = await axios.get(url, {
-		headers: requestHeaders,
-	});
+	const response = await Queue.enqueue(
+		async () =>
+			await axios.get(url, {
+				headers: scrapeRequestHeader(),
+			})
+	);
 	const html = response.data;
 
 	// ? Load HTML to cheerio
@@ -62,9 +62,12 @@ export const scrapeVenue = async (venueUrl) => {
 	const url = venueUrl;
 
 	// ? Get HTML of the website
-	const response = await axios.get(url, {
-		headers: requestHeaders,
-	});
+	const response = await Queue.enqueue(
+		async () =>
+			await axios.get(url, {
+				headers: scrapeRequestHeader(),
+			})
+	);
 	const html = response.data;
 
 	// ? Load HTML to cheerio
