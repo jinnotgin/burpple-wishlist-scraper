@@ -33,7 +33,7 @@ const burppleWishlistWorker = (onEndTrigger = () => {}) => {
 				//   logger.info(`Scraping page ${page}..`);
 				// }
 
-				wishlist_fileStream.append(entries);
+				await wishlist_fileStream.append(entries);
 
 				return {
 					...prevState,

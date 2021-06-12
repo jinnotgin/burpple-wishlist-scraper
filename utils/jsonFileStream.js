@@ -29,26 +29,30 @@ export default class JsonFileStream {
 	}
 
 	append(entries) {
-		if (!!!this.hasInit) throw "File stream not initialised yet.";
-		var stream = fs.createWriteStream(this.filePath, { flags: "a" });
+		return new Promise((resolve, reject) => {
+			if (!!!this.hasInit) throw "File stream not initialised yet.";
+			var stream = fs.createWriteStream(this.filePath, { flags: "a" });
 
-		const thisClass = this;
-		entries.forEach(function (item, index) {
-			let content = "";
-			switch (thisClass.dataType) {
-				case "dictionary": {
-					content = `"${item.id}": ${JSON.stringify(item)}`;
-					break;
+			const thisClass = this;
+			entries.forEach(function (item, index) {
+				let content = "";
+				switch (thisClass.dataType) {
+					case "dictionary": {
+						content = `"${item.id}": ${JSON.stringify(item)}`;
+						break;
+					}
+					default: {
+						content = JSON.stringify(item);
+					}
 				}
-				default: {
-					content = JSON.stringify(item);
-				}
-			}
-			// content = JSON.stringify(item);
-			stream.write(`${!!thisClass.firstLineWritten ? "," : ""}${content}\n`);
-			if (!!!thisClass.firstLineWritten) thisClass.firstLineWritten = true;
+				// content = JSON.stringify(item);
+				stream.write(`${!!thisClass.firstLineWritten ? "," : ""}${content}\n`);
+				if (!!!thisClass.firstLineWritten) thisClass.firstLineWritten = true;
+			});
+			stream.end();
+			stream.on("finish", resolve);
+			stream.on("error", reject);
 		});
-		stream.end();
 	}
 
 	end() {

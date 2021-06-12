@@ -31,7 +31,8 @@ const burppleWishlistVenueTask = async () => {
 			console.log(venueData);
 
 			// venue_fileStream.append([{ id: venueData.id, data: venueData }]);
-			venue_fileStream.append([venueData]);
+			await venue_fileStream.append([venueData]);
+
 			if (linesToProcess === 0) venue_fileStream.end();
 		});
 	} catch (e) {
