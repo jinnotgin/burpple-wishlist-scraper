@@ -1,5 +1,9 @@
-{"start": "2021-06-12T16:37:12.625Z", "data": [
-{"id":"217142","name":"You Kee XO Restaurant","url":"https://www.burpple.com/you-kee-xo-restaurant-1"}
+{"start": "2021-08-29T12:46:09.333Z", "data": [
+{"id":"21599","name":"Mongkok Dim Sum (Geylang)","url":"https://www.burpple.com/mongkok-dim-sum"}
+,{"id":"112854","name":"Suriya Curry House Banana Leaf Restaurant","url":"https://www.burpple.com/suriya-cury-house"}
+,{"id":"194578","name":"Tonkatsu by Ma Maison (CHIJMES)","url":"https://www.burpple.com/ma-maison-tonkatsu-at-chijmes-singapore"}
+,{"id":"228935","name":"ROMAN.TEI (Jurong Point)","url":"https://www.burpple.com/romantei-jurong-point"}
+,{"id":"217142","name":"You Kee XO Restaurant","url":"https://www.burpple.com/you-kee-xo-restaurant-1"}
 ,{"id":"304","name":"Anson Town (Telok Kurau)","url":"https://www.burpple.com/ipoh-anson-chee-cheong-fun"}
 ,{"id":"209447","name":"Pig N Whistle","url":"https://www.burpple.com/pignwhistlesg"}
 ,{"id":"229349","name":"Hinode Izakaya & Bar","url":"https://www.burpple.com/hinode-izakaya-bar"}
@@ -8,7 +12,6 @@
 ,{"id":"149315","name":"Hakata Ikkousha Ramen (CHIJMES)","url":"https://www.burpple.com/hakata-ikkousha-ramen-at-chijmes"}
 ,{"id":"209480","name":"Hvala (CHIJMES)","url":"https://www.burpple.com/hvala-chijmes"}
 ,{"id":"161629","name":"Privé (CHIJMES)","url":"https://www.burpple.com/prive-chijmes"}
-,{"id":"26434","name":"OLA Cocina del Mar","url":"https://www.burpple.com/ola-cocina-del-mar-by-osvaldo-forlino"}
 ,{"id":"184364","name":"South Union Park","url":"https://www.burpple.com/south-union-park"}
 ,{"id":"171280","name":"Moc Quan (UE Square)","url":"https://www.burpple.com/moc-quan"}
 ,{"id":"228440","name":"TAAN IZA-BAR","url":"https://www.burpple.com/taan-iza-bar"}
@@ -34,7 +37,7 @@
 ,{"id":"204591","name":"The Community Coffee","url":"https://www.burpple.com/the-community-coffee"}
 ,{"id":"219821","name":"Tenjin (Shaw Centre)","url":"https://www.burpple.com/tenjin-restaurant"}
 ,{"id":"159358","name":"Sanpoutei Ramen (Shaw House)","url":"https://www.burpple.com/sanpoutei-ramen-1"}
-,{"id":"227566","name":"Tenya","url":"https://www.burpple.com/tenya-sg"}
+,{"id":"227566","name":"Tenya (Orchard Central)","url":"https://www.burpple.com/tenya-sg"}
 ,{"id":"212588","name":"Thai-licious Boat Noodles","url":"https://www.burpple.com/thailiciousboatnoodles"}
 ,{"id":"161965","name":"Twenty Grammes (Bugis)","url":"https://www.burpple.com/twenty-grammes"}
 ,{"id":"226557","name":"Soi 47 Thai Food (Chinatown)","url":"https://www.burpple.com/soi-47-thai-food"}
@@ -47,7 +50,7 @@
 ,{"id":"148177","name":"The Horse's Mouth","url":"https://www.burpple.com/the-horses-mouth"}
 ,{"id":"160088","name":"Good Morning Nanyang Cafe (Far East Plaza)","url":"https://www.burpple.com/good-morning-nanyang-cafe-at-far-east-plaza"}
 ,{"id":"5018","name":"il Cielo","url":"https://www.burpple.com/il-cielo"}
-,{"id":"133617","name":"Marutama Ra-men (Clarke Quay Central)","url":"https://www.burpple.com/marutama-ramen-central-clarke-quay"}
+,{"id":"133617","name":"Marutama Ramen (Clarke Quay Central)","url":"https://www.burpple.com/marutama-ramen-central-clarke-quay"}
 ,{"id":"215907","name":"Eleven Strands","url":"https://www.burpple.com/eleven-strands"}
 ,{"id":"215239","name":"Soi Thai Kitchen (JCube)","url":"https://www.burpple.com/soi-thai-kitchen-2"}
 ,{"id":"206070","name":"Nipong Naepong (Jem)","url":"https://www.burpple.com/nipongnaepongsingapore"}
@@ -121,7 +124,7 @@
 ,{"id":"160780","name":"Si Wei Mao Cai","url":"https://www.burpple.com/si-wei-mao-cai"}
 ,{"id":"215036","name":"Tongue Tip Beef Noodles (Chinatown Point)","url":"https://www.burpple.com/tongue-tip-lanzhou-beef-noodles-1"}
 ,{"id":"20802","name":"Ji Ji Wanton Noodle Specialist (Hong Lim Market & Food Centre)","url":"https://www.burpple.com/ji-ji-wanton-noodle-specialist"}
-,{"id":"109659","name":"Dong Bei Ren Jia 东北人家","url":"https://www.burpple.com/dong-bei-ren-jia"}
+,{"id":"109659","name":"Dong Bei Ren Jia","url":"https://www.burpple.com/dong-bei-ren-jia"}
 ,{"id":"150448","name":"Nam Seng Noodles","url":"https://www.burpple.com/nam-seng-wonton-noodles"}
 ,{"id":"208123","name":"Chilli Pan Mee","url":"https://www.burpple.com/chillipanmee"}
 ,{"id":"226882","name":"Nature's Nutrition (Far East Square)","url":"https://www.burpple.com/natures-nutrition-far-east-square"}
@@ -202,7 +205,7 @@
 ,{"id":"201214","name":"Akimitsu (VivoCity)","url":"https://www.burpple.com/akimitsu-1"}
 ,{"id":"199938","name":"Akimitsu (Plaza Singapura)","url":"https://www.burpple.com/akimitsu"}
 ,{"id":"201954","name":"Akimitsu (Northpoint City)","url":"https://www.burpple.com/akimitsu-2"}
-,{"id":"158364","name":"Holy Cow Creamery","url":"https://www.burpple.com/holy-cow-creamery"}
+,{"id":"158364","name":"Holy Cow Creamery (Yishun)","url":"https://www.burpple.com/holy-cow-creamery"}
 ,{"id":"222386","name":"The Patio","url":"https://www.burpple.com/the-patio"}
 ,{"id":"140149","name":"Sembawang Traditional Claypot Rice","url":"https://www.burpple.com/sembawang-traditional-claypot-rice-bao"}
 ,{"id":"71985","name":"White Restaurant (Sembawang)","url":"https://www.burpple.com/you-huak-restaurant-sembawang-white-beehoon"}
@@ -210,7 +213,7 @@
 ,{"id":"125624","name":"Hong Ji Mian Shi Jia (Telok Blangah Drive Block 79 Food Centre)","url":"https://www.burpple.com/hong-ji-mian-shi-jia-wanton-mee"}
 ,{"id":"122849","name":"Hong Ji Claypot Bak Kut Teh (Ang Mo Kio)","url":"https://www.burpple.com/hong-ji-bak-kut-teh"}
 ,{"id":"60856","name":"Hong Ji Claypot Bak Kut Teh (Marsiling)","url":"https://www.burpple.com/hong-ji-claypot-bak-kut-teh"}
-,{"id":"18186","name":"Cheval Cafe Bar Bistro","url":"https://www.burpple.com/cheval-cafebarbistro"}
+,{"id":"18186","name":"Cheval Cafe Bar Bistro (Singapore Turf Club Riding Centre)","url":"https://www.burpple.com/cheval-cafebarbistro"}
 ,{"id":"4526","name":"Tiong Bahru Bakery (Tiong Bahru)","url":"https://www.burpple.com/tiong-bahru-bakery-1"}
 ,{"id":"1196","name":"Wild Honey (Mandarin Gallery)","url":"https://www.burpple.com/wild-honey-1"}
 ,{"id":"5922","name":"The Halia at Singapore Botanic Gardens","url":"https://www.burpple.com/halia-restaurant"}
@@ -225,4 +228,4 @@
 ,{"id":"205134","name":"Uya","url":"https://www.burpple.com/uya-singapore"}
 ,{"id":"202361","name":"Man Man Japanese Unagi Restaurant (DUO Galleria)","url":"https://www.burpple.com/man-man-japanese-unagi-restaurant-duo-galleria"}
 ,{"id":"134824","name":"Noo Cheng Adam Road Big Prawn Noodle (Adam Road Food Centre)","url":"https://www.burpple.com/noo-cheng-adam-road-big-prawn-noodle"}
-], "end": "2021-06-12T16:41:04.360Z" }
+], "end": "2021-08-29T12:50:01.841Z" }
