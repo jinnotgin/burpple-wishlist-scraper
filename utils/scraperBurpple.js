@@ -87,6 +87,9 @@ export const scrapeVenue = async (venueUrl) => {
 	)
 		.text()
 		.trim();
+	const categories = $("div.venue-tags a.venue-tag")
+		.toArray()
+		.map((x) => $(x).text());
 	const googleMapUrl = $(
 		"div.venue-details__item--address div.venue-details__item-body a.open-google-map"
 	).prop("href");
@@ -118,6 +121,7 @@ export const scrapeVenue = async (venueUrl) => {
 		id,
 		name,
 		details,
+		categories,
 		featuredImages,
 		location: {
 			latitude,
