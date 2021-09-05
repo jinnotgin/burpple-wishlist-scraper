@@ -1,35 +1,5 @@
-{"start": "2021-09-05T15:05:03.849Z", "data": [
-], "end": "2021-09-05T15:05:05.524Z" }
-,{"id":"218466","name":"the kins'","url":"https://www.burpple.com/the-kins"}
-,{"id":"183514","name":"Creamier (Gillman Barracks)","url":"https://www.burpple.com/creamier-gillman-barracks"}
-,{"id":"205267","name":"Carrara Cafe","url":"https://www.burpple.com/carrara-cafe"}
-,{"id":"168855","name":"Shanghai La Mian Xiao Long Bao (Alexandra Village Food Centre)","url":"https://www.burpple.com/shanghai-la-mian-xiao-long-bao"}
-,{"id":"117183","name":"Tai Liok Claypot Chicken Rice (Alexandra Village Food Centre)","url":"https://www.burpple.com/tai-liok-claypot-chicken-rice"}
-,{"id":"6461","name":"KEK Keng Eng Kee Seafood (Alexandra)","url":"https://www.burpple.com/keng-eng-kee-seafood"}
-,{"id":"1045","name":"Jimmy Monkey Café (One North)","url":"https://www.burpple.com/jimmy-monkey-cafe-bar"}
-,{"id":"1356","name":"Wala Wala Cafe Bar","url":"https://www.burpple.com/wala-wala-cafe-bar"}
-,{"id":"94399","name":"W39 Bistro & Bakery","url":"https://www.burpple.com/w39-bistro-bakery"}
-,{"id":"195205","name":"HoHo Korean Restaurant","url":"https://www.burpple.com/hoho-korean-sunset-way"}
-,{"id":"220051","name":"Tendon Kohaku (Clarke Quay Central)","url":"https://www.burpple.com/tendon-kohaku-clarke-quay-central"}
-,{"id":"188388","name":"Tendon Kohaku (Suntec City)","url":"https://www.burpple.com/kohaku"}
-,{"id":"193544","name":"Tendon Kohaku (Boat Quay)","url":"https://www.burpple.com/tendon-kohakuboat-quay"}
-,{"id":"212713","name":"Menya Kokoro (Suntec City)","url":"https://www.burpple.com/menyakokorosg"}
-,{"id":"173091","name":"elemen (Millenia Walk)","url":"https://www.burpple.com/elemen"}
-,{"id":"10","name":"Paulaner Bräuhaus Singapore","url":"https://www.burpple.com/paulaner-bruhaus"}
-,{"id":"203985","name":"HANS IM GLÜCK German Burgergrill (Orchard)","url":"https://www.burpple.com/hans-im-gluck-german-burgergrill"}
-,{"id":"212571","name":"HANS IM GLÜCK German Burgergrill (Boat Quay)","url":"https://www.burpple.com/hans-im-gluck-boat-quay"}
-,{"id":"215629","name":"HANS IM GLÜCK German Burgergrill (VivoCity)","url":"https://www.burpple.com/hans-im-gluck-german-burgergrill-vivocity"}
-,{"id":"219944","name":"Ajumma's (Funan)","url":"https://www.burpple.com/ajummas"}
-,{"id":"182822","name":"Ramen Keisuke Lobster King","url":"https://www.burpple.com/ramen-keisuke-lobster-king"}
-,{"id":"227440","name":"Wan He Lou (Beauty World)","url":"https://www.burpple.com/wan-he-lou-kitchen"}
-,{"id":"89222","name":"Wan He Lou (Maude Road)","url":"https://www.burpple.com/wan-he-lou"}
-,{"id":"148177","name":"The Horse's Mouth","url":"https://www.burpple.com/the-horses-mouth"}
-,{"id":"160088","name":"Good Morning Nanyang Cafe (Far East Plaza)","url":"https://www.burpple.com/good-morning-nanyang-cafe-at-far-east-plaza"}
-,{"id":"5018","name":"il Cielo","url":"https://www.burpple.com/il-cielo"}
-,{"id":"133617","name":"Marutama Ramen (Clarke Quay Central)","url":"https://www.burpple.com/marutama-ramen-central-clarke-quay"}
-,{"id":"215907","name":"Eleven Strands","url":"https://www.burpple.com/eleven-strands"}
-,{"id":"215239","name":"Soi Thai Kitchen (JCube)","url":"https://www.burpple.com/soi-thai-kitchen-2"}
-,{"id":"206070","name":"Nipong Naepong (Jem)","url":"https://www.burpple.com/nipongnaepongsingapore"}
+{"start": "2021-09-05T15:06:03.800Z", "data": [
+], "end": "2021-09-05T15:06:05.813Z" }
 {"id":"25124","name":"Tsuru-koshi (Takashimaya)","url":"https://www.burpple.com/tsurukoshi-udon"}
 ,{"id":"1664","name":"S-11 (Bishan 504)","url":"https://www.burpple.com/s11-bishan"}
 ,{"id":"205115","name":"Signs A Taste Of Vietnam Pho","url":"https://www.burpple.com/signs-a-taste-of-vietnam-pho"}
@@ -40,3 +10,33 @@
 ,{"id":"158610","name":"Okinawan Diner Nirai-Kanai","url":"https://www.burpple.com/okinawan-diner-niraikanai"}
 ,{"id":"3750","name":"Cottontail Creamery","url":"https://www.burpple.com/blueberry-cafe"}
 ,{"id":"91163","name":"Muchachos","url":"https://www.burpple.com/muchachos"}
+,{"id":"220051","name":"Tendon Kohaku (Clarke Quay Central)","url":"https://www.burpple.com/tendon-kohaku-clarke-quay-central"}
+,{"id":"188388","name":"Tendon Kohaku (Suntec City)","url":"https://www.burpple.com/kohaku"}
+,{"id":"193544","name":"Tendon Kohaku (Boat Quay)","url":"https://www.burpple.com/tendon-kohakuboat-quay"}
+,{"id":"212713","name":"Menya Kokoro (Suntec City)","url":"https://www.burpple.com/menyakokorosg"}
+,{"id":"173091","name":"elemen (Millenia Walk)","url":"https://www.burpple.com/elemen"}
+,{"id":"10","name":"Paulaner Bräuhaus Singapore","url":"https://www.burpple.com/paulaner-bruhaus"}
+,{"id":"203985","name":"HANS IM GLÜCK German Burgergrill (Orchard)","url":"https://www.burpple.com/hans-im-gluck-german-burgergrill"}
+,{"id":"212571","name":"HANS IM GLÜCK German Burgergrill (Boat Quay)","url":"https://www.burpple.com/hans-im-gluck-boat-quay"}
+,{"id":"215629","name":"HANS IM GLÜCK German Burgergrill (VivoCity)","url":"https://www.burpple.com/hans-im-gluck-german-burgergrill-vivocity"}
+,{"id":"219944","name":"Ajumma's (Funan)","url":"https://www.burpple.com/ajummas"}
+,{"id":"218466","name":"the kins'","url":"https://www.burpple.com/the-kins"}
+,{"id":"183514","name":"Creamier (Gillman Barracks)","url":"https://www.burpple.com/creamier-gillman-barracks"}
+,{"id":"205267","name":"Carrara Cafe","url":"https://www.burpple.com/carrara-cafe"}
+,{"id":"168855","name":"Shanghai La Mian Xiao Long Bao (Alexandra Village Food Centre)","url":"https://www.burpple.com/shanghai-la-mian-xiao-long-bao"}
+,{"id":"117183","name":"Tai Liok Claypot Chicken Rice (Alexandra Village Food Centre)","url":"https://www.burpple.com/tai-liok-claypot-chicken-rice"}
+,{"id":"6461","name":"KEK Keng Eng Kee Seafood (Alexandra)","url":"https://www.burpple.com/keng-eng-kee-seafood"}
+,{"id":"1045","name":"Jimmy Monkey Café (One North)","url":"https://www.burpple.com/jimmy-monkey-cafe-bar"}
+,{"id":"1356","name":"Wala Wala Cafe Bar","url":"https://www.burpple.com/wala-wala-cafe-bar"}
+,{"id":"94399","name":"W39 Bistro & Bakery","url":"https://www.burpple.com/w39-bistro-bakery"}
+,{"id":"195205","name":"HoHo Korean Restaurant","url":"https://www.burpple.com/hoho-korean-sunset-way"}
+,{"id":"182822","name":"Ramen Keisuke Lobster King","url":"https://www.burpple.com/ramen-keisuke-lobster-king"}
+,{"id":"227440","name":"Wan He Lou (Beauty World)","url":"https://www.burpple.com/wan-he-lou-kitchen"}
+,{"id":"89222","name":"Wan He Lou (Maude Road)","url":"https://www.burpple.com/wan-he-lou"}
+,{"id":"148177","name":"The Horse's Mouth","url":"https://www.burpple.com/the-horses-mouth"}
+,{"id":"160088","name":"Good Morning Nanyang Cafe (Far East Plaza)","url":"https://www.burpple.com/good-morning-nanyang-cafe-at-far-east-plaza"}
+,{"id":"5018","name":"il Cielo","url":"https://www.burpple.com/il-cielo"}
+,{"id":"133617","name":"Marutama Ramen (Clarke Quay Central)","url":"https://www.burpple.com/marutama-ramen-central-clarke-quay"}
+,{"id":"215907","name":"Eleven Strands","url":"https://www.burpple.com/eleven-strands"}
+,{"id":"215239","name":"Soi Thai Kitchen (JCube)","url":"https://www.burpple.com/soi-thai-kitchen-2"}
+,{"id":"206070","name":"Nipong Naepong (Jem)","url":"https://www.burpple.com/nipongnaepongsingapore"}
