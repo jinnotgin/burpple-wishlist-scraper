@@ -127,6 +127,7 @@ export const scrapeVenue = async (venueUrl) => {
 			latitude,
 			longitude,
 		},
+		venueUrl,
 		googleMapUrl,
 		openingHours,
 	};
