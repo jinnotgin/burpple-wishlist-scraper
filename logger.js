@@ -23,7 +23,10 @@ const options = {
 
 const logger = winston.createLogger({
 	level: "info",
-	format: winston.format.json(),
+	format: winston.format.combine(
+		winston.format.timestamp({ format: "YYYY-MM-DD HH:mm:ss" }),
+		winston.format.json()
+	),
 	transports: [
 		new winston.transports.File(options.file),
 		new winston.transports.Console(options.console),
