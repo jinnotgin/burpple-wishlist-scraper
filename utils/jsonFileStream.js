@@ -1,5 +1,6 @@
 import fs from "fs";
 import readline from "readline";
+import outputFile from "output-file";
 
 const dataTypeMap = {
 	array: ["[", "]"],
@@ -16,16 +17,22 @@ export default class JsonFileStream {
 
 	init() {
 		if (this.hasInit) throw "File stream in progress.";
+
 		const startCharacter = dataTypeMap[this.dataType][0];
-		fs.writeFile(
+		outputFile(
+			this.filePath,
+			`{"start": "${new Date().toJSON()}", "data": ${startCharacter}\n`
+		).then(() => {
+			this.hasInit = true;
+			this.firstLineWritten = false;
+		});
+		/*fs.writeFile(
 			this.filePath,
 			`{"start": "${new Date().toJSON()}", "data": ${startCharacter}\n`,
 			(error) => {
 				if (error) throw error;
 			}
-		);
-		this.hasInit = true;
-		this.firstLineWritten = false;
+		);*/
 	}
 
 	append(entries) {
@@ -69,14 +76,32 @@ export default class JsonFileStream {
 		this.firstLineWritten = false;
 	}
 
+	get exists() {
+		try {
+			if (fs.existsSync(this.filePath)) {
+				return true;
+			}
+		} catch (err) {
+			return false;
+		}
+	}
+
 	get readline() {
-		const fileStream = fs.createReadStream(this.filePath);
+		try {
+			if (this.exists) {
+				const fileStream = fs.createReadStream(this.filePath);
 
-		const rl = readline.createInterface({
-			input: fileStream,
-			crlfDelay: Infinity,
-		});
+				const rl = readline.createInterface({
+					input: fileStream,
+					crlfDelay: Infinity,
+				});
 
-		return rl;
+				return rl;
+			} else {
+				throw "File does not exist.";
+			}
+		} catch (err) {
+			console.error(err);
+		}
 	}
 }

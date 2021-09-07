@@ -3,44 +3,53 @@ import { scrapeVenue } from "./utils/scraperBurpple.js";
 import JsonFileStream from "./utils/jsonFileStream.js";
 import * as constants from "./constants.js";
 
-const { WISHLIST_DATAFILE, VENUES_DATAFILE } = constants;
-const wishlist_fileStream = new JsonFileStream(WISHLIST_DATAFILE);
-const venue_fileStream = new JsonFileStream(VENUES_DATAFILE, "dictionary");
+const { wishlistFilePath, venuesFilePath } = constants;
 
-const burppleWishlistVenueTask = async () => {
-	logger.info("Started Burpple wishlist venue scraping..");
-	try {
-		venue_fileStream.init();
+const burppleWishlistVenueTask = async (original_usernamesArray) => {
+	const usernamesArray = [...original_usernamesArray];
 
-		const readline = wishlist_fileStream.readline;
-
-		let linesToProcess = 0;
-		readline.on("line", async (line) => {
-			const isValidData = line.match(/{.*}/) !== null;
-			if (!!!isValidData) return false;
-
-			const data = JSON.parse(line.replace(",{", "{")); // remove the first comma in the line, if any
-			const { url, name } = data;
-			linesToProcess++;
-
-			const venueData = await scrapeVenue(url);
-			logger.info(`Scraping venue ${name}..`);
-
-			linesToProcess--;
-			venueData["inWishlist"] = true;
-			console.log(venueData);
-
-			// venue_fileStream.append([{ id: venueData.id, data: venueData }]);
-			await venue_fileStream.append([venueData]);
-
-			if (linesToProcess === 0) venue_fileStream.end();
-		});
-	} catch (e) {
-		logger.error(e);
-		logger.error(
-			"During venue wishlist scraping, encountered an exception. Routine will now terminate."
+	usernamesArray.forEach((username) => {
+		const wishlist_fileStream = new JsonFileStream(wishlistFilePath(username));
+		const venues_fileStream = new JsonFileStream(
+			venuesFilePath(username),
+			"dictionary"
 		);
-	}
+
+		logger.info(`Started Burpple wishlist venue scraping for @${username}...`);
+		try {
+			if (!wishlist_fileStream.exists) throw "Wishlist file does not exist.";
+			venues_fileStream.init();
+
+			const readline = wishlist_fileStream.readline;
+
+			let linesToProcess = 0;
+			readline.on("line", async (line) => {
+				const isValidData = line.match(/{.*}/) !== null;
+				if (!!!isValidData) return false;
+
+				const data = JSON.parse(line.replace(",{", "{")); // remove the first comma in the line, if any
+				const { url, name } = data;
+				linesToProcess++;
+
+				const venueData = await scrapeVenue(url);
+				logger.info(`Scraping venue ${name}..`);
+
+				linesToProcess--;
+				venueData["inWishlist"] = true;
+				console.log(venueData);
+
+				// venues_fileStream.append([{ id: venueData.id, data: venueData }]);
+				await venues_fileStream.append([venueData]);
+
+				if (linesToProcess === 0) venues_fileStream.end();
+			});
+		} catch (e) {
+			logger.error(e);
+			logger.error(
+				"During venue scraping, encountered an exception. Routine will now terminate."
+			);
+		}
+	});
 };
 
 export default burppleWishlistVenueTask;

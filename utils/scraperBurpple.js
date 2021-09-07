@@ -7,14 +7,15 @@ import scrapeRequestHeader from "./scrapeRequestHeader.js";
 import Queue from "./queue.js";
 
 import * as constants from "../constants.js";
-const { SCRAPE_HOST, WISHLIST_URL } = constants;
+const { SCRAPE_HOST, wishlistUrl } = constants;
 
-export const scrapeWishlist = async ({ page = 1 }) => {
+export const scrapeWishlist = async ({ page = 1, username = "" }) => {
 	if (page < 0) throw "Page size is negative.";
 
 	const ITEMS_PER_PAGE = 10;
 	const offset = (page - 1) * ITEMS_PER_PAGE;
 
+	const WISHLIST_URL = wishlistUrl(username);
 	const url = `${WISHLIST_URL}${offset > 0 ? `?offset=${offset}` : ""}`;
 	console.log(url);
 
