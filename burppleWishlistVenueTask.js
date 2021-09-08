@@ -31,16 +31,23 @@ const burppleWishlistVenueTask = async (original_usernamesArray) => {
 				const { url, name } = data;
 				linesToProcess++;
 
-				const venueData = await scrapeVenue(url);
-				logger.info(`Scraping venue ${name}..`);
+				try {
+					logger.info(`Scraping venue ${name}..`);
+					const venueData = await scrapeVenue(url);
+
+					venueData["inWishlist"] = true;
+					console.log(venueData);
+
+					// venues_fileStream.append([{ id: venueData.id, data: venueData }]);
+					await venues_fileStream.append([venueData]);
+				} catch (e) {
+					logger.error(
+						`During venue scraping for ${name}, encountered an exception.`
+					);
+					logger.error(e);
+				}
 
 				linesToProcess--;
-				venueData["inWishlist"] = true;
-				console.log(venueData);
-
-				// venues_fileStream.append([{ id: venueData.id, data: venueData }]);
-				await venues_fileStream.append([venueData]);
-
 				if (linesToProcess === 0) venues_fileStream.end();
 			});
 		} catch (e) {
