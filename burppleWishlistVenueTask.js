@@ -1,4 +1,6 @@
-import logger from "./logger.js";
+// deprecated
+
+import logger from "./utils/logger.js";
 import { scrapeVenue } from "./utils/scraperBurpple.js";
 import JsonFileStream from "./utils/jsonFileStream.js";
 import * as constants from "./constants.js";
@@ -32,8 +34,8 @@ const burppleWishlistVenueTask = async (original_usernamesArray) => {
 				linesToProcess++;
 
 				try {
-					logger.info(`Scraping venue ${name}..`);
 					const venueData = await scrapeVenue(url);
+					logger.info(`Scraped venue ${name}..`);
 
 					venueData["inWishlist"] = true;
 					console.log(venueData);

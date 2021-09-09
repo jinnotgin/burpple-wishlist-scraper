@@ -16,43 +16,56 @@ export default class JsonFileStream {
 	}
 
 	init() {
-		if (this.hasInit) throw "File stream in progress.";
-
-		const startCharacter = dataTypeMap[this.dataType][0];
-		outputFile(
-			this.filePath,
-			`{"start": "${new Date().toJSON()}", "data": ${startCharacter}\n`
-		).then(() => {
-			this.hasInit = true;
-			this.firstLineWritten = false;
-		});
-		/*fs.writeFile(
-			this.filePath,
-			`{"start": "${new Date().toJSON()}", "data": ${startCharacter}\n`,
-			(error) => {
-				if (error) throw error;
+		return new Promise((resolve, reject) => {
+			try {
+				if (this.hasInit) throw "File stream in progress.";
+		
+				const startCharacter = dataTypeMap[this.dataType][0];
+				outputFile(
+					this.filePath,
+					`{"start": "${new Date().toJSON()}", "data": ${startCharacter}\n`
+				).then(() => {
+					this.hasInit = true;
+					this.firstLineWritten = false;
+					resolve();
+				});
+				/*fs.writeFile(
+					this.filePath,
+					`{"start": "${new Date().toJSON()}", "data": ${startCharacter}\n`,
+					(error) => {
+						if (error) throw error;
+					}
+				);*/
+			} catch (e) {
+				reject(e);
 			}
-		);*/
+	
+		});
 	}
 
-	append(entries) {
+	append(entries, isString = false) {
 		return new Promise((resolve, reject) => {
+			console.log(entries.length)
 			if (!!!this.hasInit) throw "File stream not initialised yet.";
 			var stream = fs.createWriteStream(this.filePath, { flags: "a" });
 
 			const thisClass = this;
 			entries.forEach(function (item, index) {
 				let content = "";
-				switch (thisClass.dataType) {
-					case "dictionary": {
-						content = `"${item.id}": ${JSON.stringify(item)}`;
-						break;
+				if (!isString) {
+					switch (thisClass.dataType) {
+						case "dictionary": {
+							content = `"${item.id}": ${JSON.stringify(item)}`;
+							break;
+						}
+						default: {
+							content = JSON.stringify(item);
+						}
 					}
-					default: {
-						content = JSON.stringify(item);
-					}
+				} else {
+					content = item;
 				}
-				// content = JSON.stringify(item);
+				
 				stream.write(`${!!thisClass.firstLineWritten ? "," : ""}${content}\n`);
 				if (!!!thisClass.firstLineWritten) thisClass.firstLineWritten = true;
 			});

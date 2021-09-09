@@ -1,8 +1,9 @@
 import admin from "firebase-admin";
 import { readFile } from "fs/promises";
+import appRoot from "app-root-path";
 const serviceAccount = JSON.parse(
 	await readFile(
-		new URL("./secrets/service-account-file.json", import.meta.url)
+		new URL(`${appRoot}/secrets/service-account-file.json`, import.meta.url)
 	)
 );
 

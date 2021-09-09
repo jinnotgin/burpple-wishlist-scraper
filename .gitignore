@@ -5,6 +5,7 @@ node_modules
 
 # secret data
 secrets
+data/data.db
 
 # Logs
 logs

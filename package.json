@@ -21,8 +21,10 @@
 		"axios": "^0.21.1",
 		"cheerio": "^1.0.0-rc.9",
 		"firebase-admin": "^9.11.1",
+		"knex": "^0.95.11",
 		"lowdb": "^2.1.0",
 		"output-file": "^2.0.2",
+		"sqlite3": "^4.2.0",
 		"winston": "^3.3.3"
 	},
 	"type": "module"
