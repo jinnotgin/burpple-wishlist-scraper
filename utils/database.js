@@ -63,7 +63,7 @@ const createDb = async () => {
           .where(colName, "=", val)
           .update(payload);
 
-        return [arrayOf_rows[0].id];
+        return arrayOf_rows[0].id;
       }
     } catch (e) {
       console.error(e);
@@ -101,7 +101,7 @@ const createDb = async () => {
 			);
 
 			const { name = "" } = venueData;
-			console.log(`Saved venue ${id_burpple} ${name}.`)
+			console.log(`Saved venue ${id_burpple} ${name} (ID: ${result}).`)
 			return result;
     } catch (e) {
       console.error(e);
