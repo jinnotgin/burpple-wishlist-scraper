@@ -168,7 +168,7 @@ const createDb = async () => {
 
   const getUserWishlist = async (id) => {
     return await knex
-      .select("venues.id", "venues.json_data")
+      .select("venues.id_burpple", "venues.json_data")
       .from("wishlists")
       .innerJoin("users", "wishlists.user_id", "users.id")
       .innerJoin("venues", "wishlists.venue_id", "venues.id")

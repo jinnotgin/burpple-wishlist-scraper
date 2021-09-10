@@ -20,8 +20,8 @@ const generateUsersJson = async () => {
         const arrayOf_venues = await db.getUserWishlist(id);
     
         const arrayOf_stringsToAppend = arrayOf_venues.map((venue) => {
-          const { id, json_data } = venue;
-          return `"${id}": ${json_data}`;
+          const { id_burpple, json_data } = venue;
+          return `"${id_burpple}": ${json_data}`;
         });
         
         await venues_fileStream.append(arrayOf_stringsToAppend, true);
