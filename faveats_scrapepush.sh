@@ -11,10 +11,8 @@ REPO_DIR=/home/jin/burpple-wishlist-scraper/
 
 cd ${REPO_DIR}
 
-${GIT} pull
-echo "${GIT}" > a.txt 
-${NODE} index.js 
-touch f
+${GIT} pull > cron.log
+${NODE} index.js > cron.log
 
 ${GIT} add --all .
 CURRENTDATE=`date +"%Y-%m-%d %T"`
