@@ -5,15 +5,25 @@
 # SAMPLE CRONTAB ENTRY (run at 11:00 AM/PM daily)
 # 0 11,23 * * * /home/jin/burpple-wishlist-scraper/faveats_scrapepush.sh
 
+# define git
 GIT=`which git`
-NODE=`which node`
-REPO_DIR=/home/jin/burpple-wishlist-scraper/
 
+# node is commented out - not using node, but NVM
+# NODE=`which node`
+
+# https://devimalplanet.com/using-nvm-in-cron-jobs
+# Load nvm
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+nvm use 16.9.0
+
+REPO_DIR=/home/jin/burpple-wishlist-scraper/
 cd ${REPO_DIR}
 
-echo "${NODE}" >> cron1.log 
-${GIT} pull >> cron1.log
-${NODE} index.js >> cron1.log
+${GIT} pull
+
+# ${NODE} index.js
+node index.js 
 
 ${GIT} add --all .
 CURRENTDATE=`date +"%Y-%m-%d %T"`
