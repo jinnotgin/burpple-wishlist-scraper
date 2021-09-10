@@ -27,9 +27,9 @@ const generateUsersJson = async () => {
         await venues_fileStream.append(arrayOf_stringsToAppend, true);
         venues_fileStream.end();
     
-        console.log(
-          `Generated JSON for "${username_burpple}" with ${arrayOf_venues.length} venues.`
-        );
+        const outputMsg = `Generated JSON for "${username_burpple}" with ${arrayOf_venues.length} venues.`;
+        console.log(outputMsg);
+	logger.info(outputMsg);
       } catch (e) {
         logger.error(
           `During JSON generation for "${username_burpple}", encountered an exception.`
