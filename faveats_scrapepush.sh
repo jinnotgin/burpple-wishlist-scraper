@@ -6,17 +6,13 @@
 # 0 11,23 * * * /home/jin/burpple-wishlist-scraper/faveats_scrapepush.sh
 
 GIT=`which git`
-touch a 
 NODE=`which node`
-touch b
 REPO_DIR=/home/jin/burpple-wishlist-scraper/
-touch c
 
 cd ${REPO_DIR}
-touch d
 
 ${GIT} pull
-touch e
+echo "${GIT}" > a.txt 
 ${NODE} index.js 
 touch f
 
