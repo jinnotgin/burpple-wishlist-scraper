@@ -25,7 +25,10 @@ const generateUsersJson = async () => {
         });
         
         await venues_fileStream.append(arrayOf_stringsToAppend, true);
-        venues_fileStream.end();
+
+        const lastUpdatedBy = await db.getUserWishListVenuesLastUpdated(id);
+        const lastUpdatedBy_date = new Date(`${lastUpdatedBy} UTC`);
+        venues_fileStream.end(lastUpdatedBy_date);
     
         const outputMsg = `Generated JSON for "${username_burpple}" with ${arrayOf_venues.length} venues.`;
         console.log(outputMsg);
@@ -40,3 +43,4 @@ const generateUsersJson = async () => {
 }
 
 export default generateUsersJson;
+generateUsersJson();

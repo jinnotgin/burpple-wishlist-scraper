@@ -175,6 +175,20 @@ const createDb = async () => {
       .where("users.id", id);
   };
 
+  const getUserWishListVenuesLastUpdated = async (id) => {
+    const result = await knex
+      .select("venues.updated_at")
+      .from("wishlists")
+      .innerJoin("users", "wishlists.user_id", "users.id")
+      .innerJoin("venues", "wishlists.venue_id", "venues.id")
+      .where("users.id", id)
+      .orderBy("venues.updated_at", "desc")
+      .limit(1);
+
+    if (result.length === 0 ) return false;
+    else return result[0].updated_at;
+  };
+
   return {
     saveUser,
     saveWishlists,
@@ -183,7 +197,8 @@ const createDb = async () => {
 		getOldVenues,
     updateVenueData,
     getAllUsers,
-		getUserWishlist
+		getUserWishlist,
+    getUserWishListVenuesLastUpdated
   };
 };
 
