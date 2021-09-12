@@ -27,9 +27,13 @@ const getFirestore = () => {
 	const getUsernames = async () => {
 		const snapshot = await getSnapshot();
 
-		const data = [];
+		const array = [];
 		snapshot.forEach(async (doc) => {
-			await data.push(doc.data().usernameBurpple);
+			const username = await doc.data().usernameBurpple;
+
+			array.indexOf(username) === -1
+				? array.push(username)
+				: console.log(`${username} already exists / is duplicated`);
 		});
 
 		return data;
