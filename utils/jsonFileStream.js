@@ -77,19 +77,25 @@ export default class JsonFileStream {
 
 	end(customEndDate = false) {
 		return new Promise((resolve, reject) => {
-			if (!!!this.hasInit) throw "File stream not initialised yet.";
-			const endCharacter = dataTypeMap[this.dataType][1];
-			const endDate = customEndDate ? customEndDate : new Date();
-
-			fs.appendFile(
-				this.filePath,
-				`${endCharacter}, "end": "${endDate.toJSON()}" }\n`,
-				(error) => {
-					if (error) throw error;
-				}
-			);
-			this.hasInit = false;
-			this.firstLineWritten = false;
+			try {
+				if (!!!this.hasInit) throw "File stream not initialised yet.";
+				const endCharacter = dataTypeMap[this.dataType][1];
+				const endDate = customEndDate ? customEndDate : new Date();
+	
+				fs.appendFile(
+					this.filePath,
+					`${endCharacter}, "end": "${endDate.toJSON()}" }\n`,
+					(error) => {
+						if (error) throw error;
+					}
+				);
+				this.hasInit = false;
+				this.firstLineWritten = false;
+				
+				resolve();
+			} catch (e) {
+				reject(e);
+			}
 		});
 	}
 
