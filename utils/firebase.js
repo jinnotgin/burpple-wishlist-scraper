@@ -36,7 +36,7 @@ const getFirestore = () => {
 				: console.log(`${username} already exists / is duplicated`);
 		});
 
-		return data;
+		return array;
 	};
 
 	return {
