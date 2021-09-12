@@ -27,5 +27,5 @@ node index.js
 
 ${GIT} add --all .
 CURRENTDATE=`date +"%Y-%m-%d %T"`
-${GIT} commit -m "Updated data on $CURRENTDATE"
+${GIT} commit -m "Updated user data on $CURRENTDATE"
 ${GIT} push

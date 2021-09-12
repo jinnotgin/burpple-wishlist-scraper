@@ -142,9 +142,9 @@ const createDb = async () => {
     return await knex("venues").select("id", "url").whereNull("json_data");
   };
 
-	const getOldVenues = async (daysThreshold = 1) => {
+	const getOldVenues = async (daysThreshold = 3) => {
 		const targetDate = new Date(Date.now() - daysThreshold * 24 * 60 * 60 * 1000);
-		return await knex("venues").select("id", "url").whereNull("updated_at", "<", targetDate);
+		return await knex("venues").select("id", "url").where("updated_at", "<", targetDate.toISOString());
 	}
 
   const updateVenueData = async (id, data) => {
