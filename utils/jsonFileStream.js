@@ -19,7 +19,7 @@ export default class JsonFileStream {
 		return new Promise((resolve, reject) => {
 			try {
 				if (this.hasInit) throw "File stream in progress.";
-		
+
 				const startCharacter = dataTypeMap[this.dataType][0];
 				outputFile(
 					this.filePath,
@@ -40,13 +40,12 @@ export default class JsonFileStream {
 			} catch (e) {
 				reject(e);
 			}
-	
 		});
 	}
 
 	append(entries, isString = false) {
 		return new Promise((resolve, reject) => {
-			console.log(entries.length)
+			console.log(entries.length);
 			if (!!!this.hasInit) throw "File stream not initialised yet.";
 			var stream = fs.createWriteStream(this.filePath, { flags: "a" });
 
@@ -66,7 +65,7 @@ export default class JsonFileStream {
 				} else {
 					content = item;
 				}
-				
+
 				stream.write(`${!!thisClass.firstLineWritten ? "," : ""}${content}\n`);
 				if (!!!thisClass.firstLineWritten) thisClass.firstLineWritten = true;
 			});
@@ -77,19 +76,21 @@ export default class JsonFileStream {
 	}
 
 	end(customEndDate = false) {
-		if (!!!this.hasInit) throw "File stream not initialised yet.";
-		const endCharacter = dataTypeMap[this.dataType][1];
-		const endDate = customEndDate ? customEndDate : new Date();
+		return new Promise((resolve, reject) => {
+			if (!!!this.hasInit) throw "File stream not initialised yet.";
+			const endCharacter = dataTypeMap[this.dataType][1];
+			const endDate = customEndDate ? customEndDate : new Date();
 
-		fs.appendFile(
-			this.filePath,
-			`${endCharacter}, "end": "${endDate.toJSON()}" }\n`,
-			(error) => {
-				if (error) throw error;
-			}
-		);
-		this.hasInit = false;
-		this.firstLineWritten = false;
+			fs.appendFile(
+				this.filePath,
+				`${endCharacter}, "end": "${endDate.toJSON()}" }\n`,
+				(error) => {
+					if (error) throw error;
+				}
+			);
+			this.hasInit = false;
+			this.firstLineWritten = false;
+		});
 	}
 
 	get exists() {
