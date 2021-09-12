@@ -10,8 +10,8 @@ const dataTypeMap = {
 export default class JsonFileStream {
 	constructor(filePath, dataType = "array") {
 		this.filePath = filePath;
-		this.hasInit = false;
 		this.dataType = dataType;
+		this.hasInit = false;
 		this.firstLineWritten = false;
 	}
 
@@ -23,7 +23,8 @@ export default class JsonFileStream {
 				const startCharacter = dataTypeMap[this.dataType][0];
 				outputFile(
 					this.filePath,
-					`{"start": "${new Date().toJSON()}", "data": ${startCharacter}\n`
+					// `{"start": "${new Date().toJSON()}", "data": ${startCharacter}\n`
+					`{"data": ${startCharacter}\n`
 				).then(() => {
 					this.hasInit = true;
 					this.firstLineWritten = false;
@@ -75,12 +76,14 @@ export default class JsonFileStream {
 		});
 	}
 
-	end() {
+	end(customEndDate = false) {
 		if (!!!this.hasInit) throw "File stream not initialised yet.";
 		const endCharacter = dataTypeMap[this.dataType][1];
+		const endDate = customEndDate ? customEndDate : new Date();
+
 		fs.appendFile(
 			this.filePath,
-			`${endCharacter}, "end": "${new Date().toJSON()}" }\n`,
+			`${endCharacter}, "end": "${endDate.toJSON()}" }\n`,
 			(error) => {
 				if (error) throw error;
 			}
