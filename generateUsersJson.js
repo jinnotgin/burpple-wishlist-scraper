@@ -30,7 +30,7 @@ const generateUsersJson = async () => {
 			const lastUpdatedBy_date = new Date(`${lastUpdatedBy} UTC`);
 			await venues_fileStream.end(lastUpdatedBy_date);
 
-			const outputMsg = `Generated JSON for "${username_burpple}" with ${arrayOf_venues.length} venues.`;
+			const outputMsg = `Generated JSON for "${username_burpple}" with ${arrayOf_venues.length} venues on ${lastUpdatedBy_date}.`;
 			console.log(outputMsg);
 			logger.info(outputMsg);
 		} catch (e) {
