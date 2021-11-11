@@ -6,6 +6,7 @@ A worker will be regularly updating the json files, with a new commit made every
 
 ## Todo
 
+- [ ] Figure out bug with new user additions resulting in a (first time) malformed data output (ending tag is not added)
 - [ ] Update username retrieval method to be not from memory
 - [ ] Figure out why venue refreshing is occuring at a daily (vs every threshold)
 - [ ] Add cleanup mechanism for orphaned venues (no longer wishlisted by anyone)
