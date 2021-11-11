@@ -3,6 +3,9 @@ import burppleWishlistTask from "./burppleWishlistTask.js";
 import burppleVenueTask from "./burppleVenueTask.js"
 import generateUsersJson from "./generateUsersJson.js"
 import firestore from "./utils/firebase.js";
+generateUsersJson();
+
+	process.exit();
 
 // TODO: update this to a method that won't result in large memory usage
 const usernamesArray = await firestore.getUsernames();
