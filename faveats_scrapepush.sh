@@ -15,7 +15,7 @@ GIT=`which git`
 # Load nvm
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-nvm use 16.9.0
+nvm use 19.8.1
 
 REPO_DIR=/home/jin/burpple-wishlist-scraper/
 cd ${REPO_DIR}
